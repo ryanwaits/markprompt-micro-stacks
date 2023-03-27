@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { Markprompt } from '@/components/Markprompt';
-import { MarkpromptIcon } from '@/components/icons/markprompt';
+import { MicroStacksIcon } from '@/components/icons/microstacks';
 
 export default function Home() {
   return (
@@ -16,8 +16,8 @@ export default function Home() {
       </Head>
       <main>
         <div className="flex h-screen w-screen items-center justify-center">
-          <div className="flex h-[calc(100vh-60px)] w-full flex-col items-center justify-center gap-12 px-8 pt-8 pb-20">
-            <div className="max-h-[480px] w-full max-w-[720px] flex-grow rounded-xl bg-neutral-1100 p-8 shadow-2xl">
+          <div className="flex h-[calc(100vh-60px)] w-full flex-col items-center justify-center gap-12 p-8">
+            <div className="max-h-[480px] w-full max-w-[720px] flex-grow rounded-xl border border-neutral-900 bg-neutral-900/25 p-8 shadow-md">
               {process.env.NEXT_PUBLIC_PROJECT_KEY ? (
                 <Markprompt
                   onDark
@@ -35,8 +35,9 @@ export default function Home() {
                 </p>
               )}
             </div>
-            <div className="flex flex-none flex-row items-center justify-center gap-8">
-              <MarkpromptIcon className="h-12 w-12" />
+            <div className="flex flex-none flex-col items-center justify-center gap-2">
+              <MicroStacksIcon className="h-12 w-12 text-white" />
+              <p className="text-xl font-bold text-white">micro-stacks</p>
             </div>
           </div>
         </div>

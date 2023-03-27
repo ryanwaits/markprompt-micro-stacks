@@ -106,7 +106,7 @@ export const Markprompt: FC<MarkpromptProps> = ({
       if (!prompt) {
         return;
       }
-
+      // setPrompt('');
       setAnswer('');
       setReferences([]);
       setLoading(true);
@@ -196,7 +196,7 @@ export const Markprompt: FC<MarkpromptProps> = ({
   }, [loading, answer, didCompleteFirstQuery]);
 
   return (
-    <div className="relative flex h-full flex-col prose prose-invert">
+    <div className="prose prose-invert relative flex h-full flex-col">
       <div className="h-12 border-b border-neutral-900">
         <form onSubmit={submitPrompt}>
           <input
@@ -213,15 +213,7 @@ export const Markprompt: FC<MarkpromptProps> = ({
           />
         </form>
       </div>
-      <div
-        className={cn(
-          'absolute inset-x-0 bottom-0 z-10 h-10 bg-gradient-to-t',
-          {
-            'from-neutral-1000 to-neutral-1000/0': !onDark,
-            'from-neutral-1100 to-neutral-1100/0': onDark,
-          },
-        )}
-      />
+      <div className={cn('absolute inset-x-0 bottom-0 z-10 h-10')} />
       <div
         ref={containerRef}
         className="hidden-scrollbar prose prose-sm absolute inset-x-0 bottom-0 top-12 z-0 max-w-full overflow-y-auto scroll-smooth py-4 pb-8 dark:prose-invert"
@@ -230,7 +222,7 @@ export const Markprompt: FC<MarkpromptProps> = ({
         {/* Need a container for ReactMarkdown to be able to access
             :last-child and display the caret */}
         <div
-          className={cn('prompt-answer prose prose-invert prose-sm', {
+          className={cn('prompt-answer prose prose-sm prose-invert', {
             'prompt-answer-done': !loading,
             'prompt-answer-loading': loading,
           })}
